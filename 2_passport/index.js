@@ -28,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(auth.localStrategy);
+passport.use(auth.googleStrategy);
 passport.serializeUser(auth.serializeUser);
 passport.deserializeUser(auth.deserializeUser);
 
@@ -38,6 +39,7 @@ function ensureAuth(req, res, next) {
 }
 
 // Router
+// LocalStrategy
 app.get('/', ensureAuth, (req, res, next) => {
   res.sendFile(`${__dirname}/views/index.html`);
 });
@@ -69,6 +71,20 @@ app.post('/signup', (req, res, next) => {
     })
     .catch(next);
 });
+
+// GoogleStrategy
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/signin' }),
+  (req, res) => {
+    res.redirect('/');
+  }
+);
 
 // Error handler
 app.use((err, req, res, next) => {

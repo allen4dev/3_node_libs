@@ -7,8 +7,7 @@
     "start": "nodemon --exec 'node index.js'"
   },
   "keywords": [],
-  "author":
-    "Alan Aliaga <alanaliagadev@gmail.com> (https://twitter.com/allen4dev)",
+  "author": "Alan Aliaga <alanaliagadev@gmail.com> (https://twitter.com/allen4dev)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -16,6 +15,7 @@
     "express-session": "^1.15.6",
     "mongoose": "^4.13.4",
     "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {

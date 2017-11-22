@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+const passport = require('passport');
+
+const config = require('./../config');
 
 const User = mongoose.model('User');
 
-const passport = require('passport');
 const { Strategy: LocalStrategy } = require('passport-local');
+const { Strategy: GoogleStrategy } = require('passport-google-oauth20');
 
 const localStrategy = new LocalStrategy({ usernameField: 'email' }, function(
   email,
@@ -22,6 +25,20 @@ const localStrategy = new LocalStrategy({ usernameField: 'email' }, function(
     .catch(done);
 });
 
+const googleStrategy = new GoogleStrategy(
+  {
+    clientID: config.google.CLIENT_ID,
+    clientSecret: config.google.CLIENT_SECRET,
+    callbackURL: config.google.CALLBACK_URL,
+  },
+  (accessToken, refreshToken, profile, done) => {
+    // find or create user
+    User.findOrCreate(profile)
+      .then(user => done(null, user))
+      .catch(done);
+  }
+);
+
 const serializeUser = (user, done) => {
   done(null, user._id);
 };
@@ -36,6 +53,7 @@ const deserializeUser = (id, done) => {
 
 module.exports = {
   localStrategy,
+  googleStrategy,
   serializeUser,
   deserializeUser,
 };
