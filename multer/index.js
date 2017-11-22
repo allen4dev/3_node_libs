@@ -31,7 +31,7 @@ const diskStorage = multer.diskStorage({
   },
 });
 
-// const upload = multer({ storage: diskStorage });
+const upload = multer({ storage: diskStorage });
 
 // MemoryStorage
 function fileFilter(req, file, next) {
@@ -41,7 +41,7 @@ function fileFilter(req, file, next) {
   next(null, true);
 }
 
-const upload = multer({ storage: multer.memoryStorage(), fileFilter });
+// const upload = multer({ storage: multer.memoryStorage(), fileFilter });
 
 // Resize
 function resize(req, res, next) {
@@ -63,10 +63,23 @@ app.get('/', (req, res, next) => {
   res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.post('/uploadImage', upload.single('image'), resize, (req, res, next) => {
+app.post('/uploadImage', upload.single('image'), (req, res, next) => {
   console.log(req.file);
   res.redirect('/');
 });
+
+app.get('/multi', (req, res, next) => {
+  res.sendFile(`${__dirname}/views/multi.html`);
+});
+
+app.post(
+  '/uploadMulti',
+  upload.fields([{ name: 'avatar' }, { name: 'banner' }]),
+  (req, res, next) => {
+    console.log(req.files);
+    res.redirect('/');
+  }
+);
 
 app.use((err, req, res, next) => {
   console.log(err);
