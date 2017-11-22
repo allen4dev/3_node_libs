@@ -29,6 +29,7 @@ app.use(passport.session());
 
 passport.use(auth.localStrategy);
 passport.use(auth.googleStrategy);
+passport.use(auth.twitterStrategy);
 passport.serializeUser(auth.serializeUser);
 passport.deserializeUser(auth.deserializeUser);
 
@@ -53,7 +54,7 @@ app.post(
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin',
-  })
+  }),
 );
 
 app.get('/signup', (req, res, next) => {
@@ -75,7 +76,7 @@ app.post('/signup', (req, res, next) => {
 // GoogleStrategy
 app.get(
   '/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate('google', { scope: ['profile', 'email'] }),
 );
 
 app.get(
@@ -83,7 +84,18 @@ app.get(
   passport.authenticate('google', { failureRedirect: '/signin' }),
   (req, res) => {
     res.redirect('/');
-  }
+  },
+);
+
+// TwitterStrategy
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+app.get(
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', {
+    successRedirect: '/',
+    failureRedirect: '/signin',
+  }),
 );
 
 // Error handler

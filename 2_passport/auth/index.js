@@ -7,11 +7,12 @@ const User = mongoose.model('User');
 
 const { Strategy: LocalStrategy } = require('passport-local');
 const { Strategy: GoogleStrategy } = require('passport-google-oauth20');
+const { Strategy: TwitterStrategy } = require('passport-twitter');
 
 const localStrategy = new LocalStrategy({ usernameField: 'email' }, function(
   email,
   password,
-  done
+  done,
 ) {
   User.findOne({ email })
     .then(user => {
@@ -33,10 +34,29 @@ const googleStrategy = new GoogleStrategy(
   },
   (accessToken, refreshToken, profile, done) => {
     // find or create user
-    User.findOrCreate(profile)
+    User.findOrCreate(
+      profile.provider,
+      profile.id,
+      //   {
+      //   email: profile.emails[0].value,
+      // }
+    )
       .then(user => done(null, user))
       .catch(done);
-  }
+  },
+);
+
+const twitterStrategy = new TwitterStrategy(
+  {
+    consumerKey: config.twitter.CONSUMER_KEY,
+    consumerSecret: config.twitter.CONSUMER_SECRET,
+    callbackURL: config.twitter.CALLBACK_URL,
+  },
+  (token, tokenSecret, profile, done) => {
+    User.findOrCreate(profile.provider, profile.id)
+      .then(user => done(null, user))
+      .catch(done);
+  },
 );
 
 const serializeUser = (user, done) => {
@@ -54,6 +74,7 @@ const deserializeUser = (id, done) => {
 module.exports = {
   localStrategy,
   googleStrategy,
+  twitterStrategy,
   serializeUser,
   deserializeUser,
 };
