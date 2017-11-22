@@ -8,6 +8,7 @@ const User = mongoose.model('User');
 const { Strategy: LocalStrategy } = require('passport-local');
 const { Strategy: GoogleStrategy } = require('passport-google-oauth20');
 const { Strategy: TwitterStrategy } = require('passport-twitter');
+const { Strategy: FacebookStrategy } = require('passport-facebook');
 
 const localStrategy = new LocalStrategy({ usernameField: 'email' }, function(
   email,
@@ -59,6 +60,20 @@ const twitterStrategy = new TwitterStrategy(
   },
 );
 
+const facebookStrategy = new FacebookStrategy(
+  {
+    clientID: config.facebook.FACEBOOK_APP_ID,
+    clientSecret: config.facebook.FACEBOOK_APP_SECRET,
+    callbackURL: config.facebook.CALLBACK_URL,
+  },
+  (accessToken, refreshToken, profile, done) => {
+    console.log(profile);
+    User.findOrCreate(profile.provider, profile.id)
+      .then(user => done(null, user))
+      .catch(done);
+  },
+);
+
 const serializeUser = (user, done) => {
   done(null, user._id);
 };
@@ -75,6 +90,7 @@ module.exports = {
   localStrategy,
   googleStrategy,
   twitterStrategy,
+  facebookStrategy,
   serializeUser,
   deserializeUser,
 };

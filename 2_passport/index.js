@@ -30,6 +30,7 @@ app.use(passport.session());
 passport.use(auth.localStrategy);
 passport.use(auth.googleStrategy);
 passport.use(auth.twitterStrategy);
+passport.use(auth.facebookStrategy);
 passport.serializeUser(auth.serializeUser);
 passport.deserializeUser(auth.deserializeUser);
 
@@ -93,6 +94,17 @@ app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get(
   '/auth/twitter/callback',
   passport.authenticate('twitter', {
+    successRedirect: '/',
+    failureRedirect: '/signin',
+  }),
+);
+
+// FacebookStrategy
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get(
+  '/auth/facebook/callback',
+  passport.authenticate('facebook', {
     successRedirect: '/',
     failureRedirect: '/signin',
   }),

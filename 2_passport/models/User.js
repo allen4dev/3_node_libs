@@ -8,6 +8,7 @@ const UserSchema = new Schema({
   password: String,
   googleID: { type: String },
   twitterID: { type: String },
+  facebookID: { type: String },
 });
 
 // Refactor: make a method to check all strategies
