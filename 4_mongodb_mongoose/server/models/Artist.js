@@ -5,6 +5,7 @@ const ArtistSchema = new Schema({
   name: {
     type: String,
     trim: true,
+    unique: true,
     required: 'A name for the artist is required',
   },
   description: {
@@ -14,7 +15,7 @@ const ArtistSchema = new Schema({
   },
   age: {
     type: Number,
-    // required: 'Age of artist is required',
+    required: 'Age of artist is required',
   },
   born: {
     type: Date,

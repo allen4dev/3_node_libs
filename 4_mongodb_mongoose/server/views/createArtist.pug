@@ -3,11 +3,19 @@ extends layout
 block content
   form(action="/api/artists", method="POST")
     div
-      label(for="name")
+      label(for="name") Name
       input(id="name" name="name" type="text" placeholder="Artist name")
 
     div
-      label(for="description")
+      label(for="age") Age
+      input(id="age" name="age" type="number")
+
+    div
+      label(for="description") Description
       textarea(id="description" name="description")
+
+    div
+      label(for="debut") Debut
+      input(id="debut" name="debut" type="date")
 
     button(type="submit") Create artist
