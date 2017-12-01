@@ -3,11 +3,21 @@ extends layout
 block content
   form(action="/api/albums", method="POST")
     div
-      label(for="name")
+      label(for="name") Name
       input(id="name" name="name" type="text" placeholder="Album name")
 
     div
-      label(for="description")
+      label(for="description") Description
       textarea(id="description" name="description" placeholder="Album description")
+
+    div
+      label(for="release") Release
+      input(id="release" name="release" type="date")
+    
+    div
+      label(for="group") Group
+      select(name="group")
+        each group in [1,2,3,4,5]
+          option(value="12309123213") Some group #{group}
 
     button(type="submit") Create album

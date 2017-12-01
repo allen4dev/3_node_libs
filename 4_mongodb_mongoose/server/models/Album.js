@@ -14,7 +14,7 @@ const AlbumSchema = new Schema({
   },
   release: {
     type: Date,
-    // required: 'Date of the release is required',
+    required: 'Date of the release is required',
   },
   group: {
     type: Schema.Types.ObjectId,

@@ -3,7 +3,24 @@ extends layout
 block content
   form(action="/api/songs", method="POST")
     div
-      label(for="name")
+      label(for="name") Name
       input(id="name" name="name" type="text" placeholder="Song name")
+
+    div
+      label(for="release") Release
+      input(id="release" name="release" type="date")
+
+    div
+      label(for="albums") Albums
+      ul
+        each album in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="albums")
+          label Album #{album}
+
+    div
+      label(for="group") Group
+        select(name="group")
+          each group in [1,2,3,4,5]
+            option(value="12309120") Group #{group}
 
     button(type="submit") Create song

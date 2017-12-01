@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Artist = mongoose.model('Artist');
 
 exports.saveArtist = async (req, res, next) => {
-  console.log('BODY', req.body);
+  console.log('ARTIST_BODY', req.body);
   const artist = new Artist(req.body);
 
   try {

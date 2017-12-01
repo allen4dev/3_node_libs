@@ -11,8 +11,40 @@ block content
       input(id="age" name="age" type="number")
 
     div
+      label(for="nicknames") Also knows as
+      ul
+        each nickname in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="nicknames")
+          label Nickname #{nickname}
+
+    div
+      label(for="occupations") Occupations
+      ul
+        each occupation in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="occupations")
+          label Occupation #{occupation}
+
+    div
+      label(for="groups") Groups
+      ul
+        each group in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="groups")
+          label Group #{group}
+          
+    div
+      label(for="genres") Genres
+      ul
+        each genres in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="genress")
+          label Genres #{genre}
+
+    div
       label(for="description") Description
       textarea(id="description" name="description")
+    
+    div
+      label(for="born") Born
+      input(id="born" name="born" type="date")
 
     div
       label(for="debut") Debut

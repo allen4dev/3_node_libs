@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Album = mongoose.model('Album');
 
 exports.saveAlbum = async (req, res, next) => {
+  console.log('ALBUM BODY', req.body);
   const album = new Album(req.body);
   try {
     const created = await album.save();

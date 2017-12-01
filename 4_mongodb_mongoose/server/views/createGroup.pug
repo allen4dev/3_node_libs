@@ -3,11 +3,18 @@ extends layout
 block content
   form(action="/api/groups", method="POST")
     div
-      label(for="name")
+      label(for="name") Name
       input(id="name" name="name" type="text" placeholder="Group name")
 
     div
-      label(for="description")
+      label(for="description") Description
       textarea(id="description" name="description" placeholder="Group description")
+
+    div
+      label(for="members") Members
+      ul
+        each member in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="members")
+          label Member #{member}
 
     button(type="submit") Create group
