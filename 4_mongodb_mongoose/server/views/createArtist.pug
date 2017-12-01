@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  form(action="/api/artists", method="POST")
+    div
+      label(for="name")
+      input(id="name" name="name" type="text" placeholder="Artist name")
+    
+    div
+      label(for="description")
+      textarea(id="description" name="description")
