@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(action="/api/groups", method="POST")
+    div
+      label(for="name")
+      input(id="name" name="name" type="text" placeholder="Group name")
+
+    div
+      label(for="description")
+      textarea(id="description" name="description" placeholder="Group description")
+
+    button(type="submit") Create group

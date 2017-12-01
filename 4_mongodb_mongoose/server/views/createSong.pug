@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  form(action="/api/songs", method="POST")
+    div
+      label(for="name")
+      input(id="name" name="name" type="text" placeholder="Song name")
+
+    button(type="submit") Create song

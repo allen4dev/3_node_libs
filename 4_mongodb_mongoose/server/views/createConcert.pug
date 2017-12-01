@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(action="/api/concerts", method="POST")
+    div
+      label(for="name")
+      input(id="name" name="name" type="text" placeholder="Concert name")
+
+    div
+      label(for="description")
+      textarea(id="description" name="description" placeholder="Concert description")
+
+    button(type="submit") Create concert

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(action="/api/albums", method="POST")
+    div
+      label(for="name")
+      input(id="name" name="name" type="text" placeholder="Album name")
+
+    div
+      label(for="description")
+      textarea(id="description" name="description" placeholder="Album description")
+
+    button(type="submit") Create album

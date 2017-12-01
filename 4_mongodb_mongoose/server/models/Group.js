@@ -16,13 +16,9 @@ const GroupSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Artist',
-      required: 'Member(s) of the group are required',
+      // required: 'Member(s) of the group are required',
     },
   ],
-  vocalist: {
-    type: Schema.Types.ObjectId,
-    ref: 'Artist',
-  },
   songs: [
     {
       type: Schema.Types.ObjectId,
@@ -37,7 +33,7 @@ const GroupSchema = new Schema({
   ],
   debut: {
     type: Date,
-    required: 'Debut of the Group is required',
+    // required: 'Debut of the Group is required',
   },
 });
 

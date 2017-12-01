@@ -9,7 +9,7 @@ const SongSchema = new Schema({
   },
   release: {
     type: Date,
-    required: 'Date of the release is required',
+    // required: 'Date of the release is required',
   },
   albums: [
     {
@@ -20,7 +20,7 @@ const SongSchema = new Schema({
   group: {
     type: Schema.Types.ObjectId,
     ref: 'Group',
-    required: 'Group who made the Song is required',
+    // required: 'Group who made the Song is required',
   },
 });
 

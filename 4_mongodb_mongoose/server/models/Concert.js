@@ -15,7 +15,7 @@ const ConcertSchema = new Schema({
   group: {
     type: Schema.Types.ObjectId,
     ref: 'Group',
-    required: 'Group who perform the Concert is required',
+    // required: 'Group who perform the Concert is required',
   },
 });
 
