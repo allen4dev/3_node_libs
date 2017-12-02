@@ -9,6 +9,7 @@ router.get('/', controller.getHome);
 
 // Artists
 router.get('/artists/create', controller.createArtist);
+router.get('/artists/search', controller.searchArtists);
 
 // Groups
 router.get('/groups/create', controller.createGroup);

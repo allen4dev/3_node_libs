@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+  body
+    block header
+      header.Header
+        nav.Navigation
+          a(href="/artists/create") Create an artist
+          a(href="/albums/create") Create an album
+          a(href="/songs/create") Create a song
+          a(href="/groups/create") Create a group
+          a(href="/concerts/create") Create a concert
+        form.Searchbar(method="" action="")
+          input.Searchbar-input(type="text", placeholder="Search...")
+    block content

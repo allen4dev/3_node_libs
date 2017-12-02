@@ -3,17 +3,46 @@ const mongoose = require('mongoose');
 const Artist = mongoose.model('Artist');
 const Group = mongoose.model('Group');
 const Album = mongoose.model('Album');
+const Song = mongoose.model('Song');
 
 // Index
-exports.getHome = (req, res, next) => {
-  res.render('index');
+exports.getHome = async (req, res, next) => {
+  try {
+    const results = await Song.aggregate([
+      {
+        $group: {
+          _id: '$group',
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+
+    console.log('RESULTS', results);
+
+    res.render('index');
+  } catch (error) {
+    next(error);
+  }
 };
+
+exports.resultsPage = (req, res, next) => {};
 
 // Artists
 exports.createArtist = (req, res, next) => {
   res.render('createArtist');
 };
 
+exports.searchArtists = async (req, res, next) => {
+  try {
+    const artists = await Artist.find({
+      $text: { $search: `"${req.query.q}"` },
+      // $text: { $search: `${req.query.q}` },
+    });
+    res.render('results', { results: artists });
+  } catch (e) {
+    next(e);
+  }
+};
 // Groups
 exports.createGroup = async (req, res, next) => {
   try {

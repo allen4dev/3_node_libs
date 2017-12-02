@@ -19,18 +19,6 @@ const GroupSchema = new Schema({
       // required: 'Member(s) of the group are required',
     },
   ],
-  // songs: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Song',
-  //   },
-  // ],
-  // concerts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Concert',
-  //   },
-  // ],
   debut: {
     type: Date,
     // required: 'Debut of the Group is required',

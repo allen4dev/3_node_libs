@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 const api = require('./api');
 const router = require('./router');
 
+const helpers = require('./helpers');
+
 const app = express();
 
 mongoose.connect('mongodb://localhost/mongoose-test');
@@ -20,6 +22,11 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  next();
+});
 
 app.use('/', router);
 app.use('/api', api);

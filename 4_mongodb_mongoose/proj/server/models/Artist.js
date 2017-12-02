@@ -35,24 +35,13 @@ const ArtistSchema = new Schema({
       lowercase: true,
     },
   ],
-  // groups: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Group',
-  //   },
-  // ],
-  // genres: [
-  //   {
-  //     type: String,
-  //     trim: true,
-  //     lowercase: true
-  //   },
-  // ],
   debut: {
     type: Date,
     // required: 'The date of debut is required',
   },
 });
+
+ArtistSchema.index({ name: 'text' });
 
 const Artist = mongoose.model('Artist', ArtistSchema);
 

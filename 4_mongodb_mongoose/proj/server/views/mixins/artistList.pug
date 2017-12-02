@@ -1,0 +1,5 @@
+mixin artistList(artists = [])
+  ul.ArtistList
+    each artist in artists
+      li.Artist
+        h4.Artist-name= artist.name
