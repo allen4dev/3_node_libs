@@ -13,9 +13,9 @@ block content
     div
       label(for="members") Members
       ul
-        each member in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="members")
-          label Member #{member}
+        each member in members
+          input(type="checkbox" value=member._id name="members")
+          label= member.name
 
     //- div
     //-   label(for="concerts") Concerts

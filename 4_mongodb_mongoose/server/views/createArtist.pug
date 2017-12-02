@@ -25,12 +25,13 @@ block content
     //-       input(type="checkbox" value="21221525" name="groups")
     //-       label Group #{group}
 
-    div
-      label(for="genres") Genres
-      ul
-        each genre in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="genres")
-          label Genre #{genre}
+    //- div
+    //-   label(for="genres") Genres
+    //-   ul
+    //-     - const genres = ['JPop', 'JRock', 'Alternative', 'Classic']
+    //-     each genre in genres
+    //-       input(type="checkbox" value=genre name="genres")
+    //-       label= genre
 
     div
       label(for="description") Description

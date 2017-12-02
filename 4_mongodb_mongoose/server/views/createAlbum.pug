@@ -17,7 +17,7 @@ block content
     div
       label(for="group") Group
       select(name="group")
-        each group in [1,2,3,4,5]
-          option(value="12309123213") Some group #{group}
+        each group in groups
+          option(value=group._id)= group.name
 
     button(type="submit") Create album

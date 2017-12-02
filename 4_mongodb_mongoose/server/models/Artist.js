@@ -25,12 +25,14 @@ const ArtistSchema = new Schema({
     {
       type: String,
       trim: true,
+      lowercase: true,
     },
   ],
   occupations: [
     {
       type: String,
       trim: true,
+      lowercase: true,
     },
   ],
   // groups: [
@@ -39,12 +41,13 @@ const ArtistSchema = new Schema({
   //     ref: 'Group',
   //   },
   // ],
-  genres: [
-    {
-      type: String,
-      trim: true,
-    },
-  ],
+  // genres: [
+  //   {
+  //     type: String,
+  //     trim: true,
+  //     lowercase: true
+  //   },
+  // ],
   debut: {
     type: Date,
     // required: 'The date of debut is required',

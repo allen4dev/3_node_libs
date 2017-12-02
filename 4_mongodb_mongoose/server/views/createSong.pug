@@ -13,13 +13,13 @@ block content
     div
       label(for="album") Album
         select(name="album")
-          each album in [1,2,3,4,5]
-            option(value="12309120") Album #{album}
+          each album in albums
+            option(value=album._id)= album.name
 
     div
       label(for="group") Group
         select(name="group")
-          each group in [1,2,3,4,5]
-            option(value="12309120") Group #{group}
+          each group in groups
+            option(value=group._id)= group.name
 
     button(type="submit") Create song

@@ -8,7 +8,7 @@ exports.saveArtist = async (req, res, next) => {
   req.body.occupations = splitString(req.body.occupations);
   req.body.nicknames = splitString(req.body.nicknames);
   // req.body.groups = makeArray(req.body.groups);
-  req.body.genres = makeArray(req.body.genres);
+  // req.body.genres = makeArray(req.body.genres);
 
   console.log('ARTIST_BODY', req.body);
 
