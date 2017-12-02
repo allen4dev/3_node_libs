@@ -11,12 +11,12 @@ const SongSchema = new Schema({
     type: Date,
     // required: 'Date of the release is required',
   },
-  albums: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Album',
-    },
-  ],
+
+  album: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album',
+  },
+
   group: {
     type: Schema.Types.ObjectId,
     ref: 'Group',

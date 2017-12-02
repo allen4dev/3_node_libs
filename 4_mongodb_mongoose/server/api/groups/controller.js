@@ -5,8 +5,8 @@ const Group = mongoose.model('Group');
 
 exports.saveGroup = async (req, res, next) => {
   req.body.members = makeArray(req.body.members);
-  req.body.songs = makeArray(req.body.songs);
-  req.body.concerts = makeArray(req.body.concerts);
+  // req.body.songs = makeArray(req.body.songs);
+  // req.body.concerts = makeArray(req.body.concerts);
 
   console.log('GROUP_BODY', req.body);
 

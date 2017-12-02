@@ -33,12 +33,12 @@ const ArtistSchema = new Schema({
       trim: true,
     },
   ],
-  groups: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Group',
-    },
-  ],
+  // groups: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Group',
+  //   },
+  // ],
   genres: [
     {
       type: String,

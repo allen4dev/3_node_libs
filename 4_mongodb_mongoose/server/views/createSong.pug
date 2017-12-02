@@ -11,11 +11,10 @@ block content
       input(id="release" name="release" type="date")
 
     div
-      label(for="albums") Albums
-      ul
-        each album in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="albums")
-          label Album #{album}
+      label(for="album") Album
+        select(name="album")
+          each album in [1,2,3,4,5]
+            option(value="12309120") Album #{album}
 
     div
       label(for="group") Group

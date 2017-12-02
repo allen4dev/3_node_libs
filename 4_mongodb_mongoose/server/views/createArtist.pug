@@ -12,24 +12,18 @@ block content
 
     div
       label(for="nicknames") Also knows as
-      ul
-        each nickname in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="nicknames")
-          label Nickname #{nickname}
+      input(type="text" name="nicknames" placeholder="nickname1, nickname2, ...")
 
     div
       label(for="occupations") Occupations
-      ul
-        each occupation in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="occupations")
-          label Occupation #{occupation}
+      input(type="text" name="occupations" placeholder="occupation1, nickname2, ...")
 
-    div
-      label(for="groups") Groups
-      ul
-        each group in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="groups")
-          label Group #{group}
+    //- div
+    //-   label(for="groups") Groups
+    //-   ul
+    //-     each group in [1,2,3,4,5]
+    //-       input(type="checkbox" value="21221525" name="groups")
+    //-       label Group #{group}
 
     div
       label(for="genres") Genres

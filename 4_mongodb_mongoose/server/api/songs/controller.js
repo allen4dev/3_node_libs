@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const { makeArray } = require('./../../utils');
+// const { makeArray } = require('./../../utils');
 
 const Song = mongoose.model('Song');
 
 exports.saveSong = async (req, res, next) => {
-  req.body.albums = makeArray(req.body.albums);
+  // req.body.albums = makeArray(req.body.albums);
 
   console.log('SONG_BODY', req.body);
 
