@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { makeArray } = require('./../../utils');
+
 const Album = mongoose.model('Album');
 
 exports.saveAlbum = async (req, res, next) => {

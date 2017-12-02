@@ -30,18 +30,18 @@ block content
         each group in [1,2,3,4,5]
           input(type="checkbox" value="21221525" name="groups")
           label Group #{group}
-          
+
     div
       label(for="genres") Genres
       ul
-        each genres in [1,2,3,4,5]
-          input(type="checkbox" value="21221525" name="genress")
-          label Genres #{genre}
+        each genre in [1,2,3,4,5]
+          input(type="checkbox" value="21221525" name="genres")
+          label Genre #{genre}
 
     div
       label(for="description") Description
       textarea(id="description" name="description")
-    
+
     div
       label(for="born") Born
       input(id="born" name="born" type="date")
