@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 
+const Song = require('./models/Song');
+
 mongoose.connect('mongodb://localhost/playgrounds');
+mongoose.Promise = global.Promise;
 
-const Artist = mongoose.model('Artist', { name: String });
-
-const artist = new Artist({ name: 'Some name' });
-
-artist
-  .save()
-  .then(created => {
-    console.log('CREATED', created);
-  })
-  .catch(err => {
-    console.error('ERROR', err);
-  });
+// $unwind, $group
+// Song.aggregate([
+//   { $unwind: '$genres' },
+//   { $group: { _id: '$genres', count: { $sum: 1 } } },
+// ])
+//   .sort({ count: -1 })
+//   .then(console.log)
+//   .catch(console.error);
