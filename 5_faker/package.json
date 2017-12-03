@@ -1,0 +1,20 @@
+{
+  "name": "5_faker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "playgrounds": "nodemon --exec 'node playgrounds.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
