@@ -127,9 +127,25 @@ mongoose.Promise = global.Promise;
 //   .then(result => console.log(JSON.stringify(result, undefined, 2)))
 //   .catch(console.error);
 
+// Virtual types
 // Artist.findById('5a239010bad31de8b4cebafe')
 //   .then(artist => {
 //     console.log(artist);
 //     console.log(artist.songs);
 //   })
+//   .catch(console.error);
+
+// Automatic search in arrays
+// Song.find({ genres: 'classic' })
+//   .then(console.log)
+//   .catch(console.error);
+
+// $match, $count
+// Song.aggregate([
+//   { $match: { genres: { $size: 1 } } },
+//   {
+//     $count: 'with_one',
+//   },
+// ])
+//   .then(console.log)
 //   .catch(console.error);
