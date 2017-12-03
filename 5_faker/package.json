@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "playgrounds": "nodemon --exec 'node playgrounds.js'"
+    "playgrounds": "nodemon --exec 'node playgrounds.js'",
+    "start": "nodemon --exec 'node index.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "faker": "^4.1.0",
+    "lodash": "^4.17.4",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.6"
   },
